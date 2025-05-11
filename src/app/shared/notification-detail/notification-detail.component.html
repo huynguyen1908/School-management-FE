@@ -1,0 +1,10 @@
+<div *ngIf="notification; else noData">
+  <h2>{{ notification.title }}</h2>
+  <p>{{ notification.content }}</p>
+  <p><strong>From:</strong> {{ notification.senderName }}</p>
+  <p><strong>To:</strong> {{ notification.receiverName }}</p>
+  <p><strong>Sent At:</strong> {{ notification.sentAt | date: 'short' }}</p>
+</div>
+<ng-template #noData>
+  <p>Không tìm thấy thông báo hoặc đang tải...</p>
+</ng-template>

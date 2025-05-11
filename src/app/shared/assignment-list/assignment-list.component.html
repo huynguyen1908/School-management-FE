@@ -1,0 +1,18 @@
+<div *ngIf="assignments.length > 0; else noAssignment">
+  <div *ngFor="let assignment of assignments" class="assignment-card">
+    <h3>{{ assignment.title }}</h3>
+    <p><strong>Môn:</strong> {{ assignment.subject || 'Chưa xác định' }}</p>
+    <p><strong>Hạn nộp:</strong> {{ assignment.dueDates ? (assignment.dueDates | date:'short') : 'Chưa có' }}</p>
+    <p>{{ assignment.description || 'Không có mô tả' }}</p>
+
+    <!-- Chỉ hiện nút cho giáo viên -->
+    <div *ngIf="role === 'teacher'">
+      <button class="btn-edit">Sửa</button>
+      <button class="btn-delete">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noAssignment>
+  <p>Chưa có bài tập nào.</p>
+</ng-template>

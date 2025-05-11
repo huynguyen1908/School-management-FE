@@ -1,0 +1,25 @@
+.notification-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 12px;
+}
+
+.notification-title {
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.create-button-container {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}

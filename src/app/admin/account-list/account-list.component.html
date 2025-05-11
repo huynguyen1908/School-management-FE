@@ -1,0 +1,39 @@
+  <table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let account">{{account.userId}}</td> <!-- sửa phần này -->
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let account">{{account.username}}</td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Role</th>
+      <td mat-cell *matCellDef="let account">{{account.role}}</td>
+    </ng-container>
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef>Trạng thái</th>
+      <td mat-cell *matCellDef="let account">{{account.isActive}}</td>
+    </ng-container>
+    <ng-container matColumnDef="createAt">
+      <th mat-header-cell *matHeaderCellDef>Ngày tạo</th>
+      <td mat-cell *matCellDef="let account">{{account.createAt}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let account">
+        <button mat-button >View</button>
+        <button mat-button [routerLink]="['/admin/accounts/edit', account.userId]">Edit</button>
+        <button mat-button (click)="deleteAccount(account.userId)">Xoá</button>
+      <!-- <td mat-cell *matCellDef="let student">
+        <button mat-button [routerLink]="['/admin/students/detail', student.studentId]">View</button>
+        <button mat-button [routerLink]="['/admin/students/edit', student.studentId]">Edit</button>
+      </td> -->
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <button mat-raised-button color="primary" [routerLink]="['/admin/students/edit', 0]" style="margin: 10px;">Add User</button> -->

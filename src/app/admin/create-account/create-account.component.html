@@ -1,0 +1,43 @@
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit()" style="max-width: 400px; margin: auto;">
+    <mat-form-field class="w-full">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field class="w-full" *ngIf="showField('PARENT')">
+      <mat-label>Parent ID (tùy chọn)</mat-label>
+      <input matInput formControlName="parentId">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full" *ngIf="showField('STUDENT')">
+      <mat-label>Student ID (tùy chọn)</mat-label>
+      <input matInput formControlName="studentId">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full" *ngIf="showField('TEACHER')">
+      <mat-label>Teacher ID (tùy chọn)</mat-label>
+      <input matInput formControlName="teacherId">
+    </mat-form-field>
+  
+    <mat-form-field class="w-full" *ngIf="showField('DEPARTMENT')">
+      <mat-label>Department ID (tùy chọn)</mat-label>
+      <input matInput formControlName="departmentId">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="accountForm.invalid">
+      Tạo tài khoản
+    </button>
+  </form>
+  

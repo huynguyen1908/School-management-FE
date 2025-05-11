@@ -1,0 +1,20 @@
+<h2>Class Detail - Students</h2>
+
+<table>
+  <tr>
+    <th>Student ID</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td>{{ student.studentId }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.gender}}</td>
+    <td>{{ student.dateOfBirth}}</td>
+  </tr>
+</table>
+
+<div style="margin-top: 20px;">
+  <input type="text" [(ngModel)]="newStudentId" placeholder="Enter Student ID">
+  <button (click)="addStudent()">Add Student</button>
+</div>

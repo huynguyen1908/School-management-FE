@@ -1,0 +1,44 @@
+.create-account-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+  
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  
+    button:disabled {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  }
+  

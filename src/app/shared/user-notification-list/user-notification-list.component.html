@@ -1,0 +1,29 @@
+<div class="notification-container mat-elevation-z2">
+  <h2>Thông báo của bạn</h2>
+
+  <table mat-table [dataSource]="notifications" class="mat-elevation-z2" *ngIf="notifications.length > 0; else noNotification">
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Tiêu đề </th>
+      <td mat-cell *matCellDef="let notification"> {{ notification.title }} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Thao tác </th>
+      <td mat-cell *matCellDef="let notification">
+        <mat-button color="primary" [routerLink]="['/student/notifications/detail', notification.notificationId]">View</mat-button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <ng-template #noNotification>
+    <p>Không có thông báo nào.</p>
+  </ng-template>
+
+</div>

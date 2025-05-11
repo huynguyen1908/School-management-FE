@@ -1,0 +1,41 @@
+<mat-card class="notification-card">
+  <mat-card-title>Tạo thông báo mới</mat-card-title>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+
+  <form [formGroup]="notificationForm" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tiêu đề</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="notificationForm.get('title')?.invalid && notificationForm.get('title')?.touched">
+        Vui lòng nhập tiêu đề
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nội dung</mat-label>
+      <textarea matInput formControlName="content" rows="5" required></textarea>
+      <mat-error *ngIf="notificationForm.get('content')?.invalid && notificationForm.get('content')?.touched">
+        Vui lòng nhập nội dung
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Người nhận (ID)</mat-label>
+      <input matInput formControlName="receiver" required>
+      <mat-error *ngIf="notificationForm.get('receiver')?.invalid && notificationForm.get('receiver')?.touched">
+        Vui lòng nhập ID người nhận
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="notificationForm.invalid">
+      Gửi thông báo
+    </button>
+  </form>
+</mat-card>

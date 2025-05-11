@@ -1,0 +1,27 @@
+<div class="edit-account">
+  <h2>Cập nhật tài khoản</h2>
+
+  <form [formGroup]="accountForm">
+    <div>
+      <label>Username:</label>
+      <input formControlName="username" />
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input formControlName="email" type="email" />
+    </div>
+
+    <div>
+      <label>Họ và tên:</label>
+      <input formControlName="fullName" />
+    </div>
+
+    <div>
+      <label>Số điện thoại:</label>
+      <input formControlName="phone" />
+    </div>
+
+    <button type="submit" [disabled]="accountForm.invalid">Cập nhật</button>
+  </form>
+</div>
