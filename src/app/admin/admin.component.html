@@ -1,26 +1,44 @@
 <mat-sidenav-container class="admin-container">
-  <mat-sidenav #sidenav [mode]="'side'" [(opened)]="isSidebarOpen">
-    <mat-toolbar color="primary">Admin Menu</mat-toolbar>
+  <mat-sidenav #sidenav class="admin-sidenav" [mode]="'side'" [(opened)]="isSidebarOpen">
+    <mat-toolbar color="primary" class="sidenav-toolbar">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Admin Menu</span>
+    </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/admin/accounts">User Account Management</a>
-      <a mat-list-item routerLink="/admin/students">Student Management</a>
-      <a mat-list-item routerLink="/admin/teachers">Teacher Management</a>
-      <a mat-list-item routerLink="/admin/classes">Class Management</a>
-      <a mat-list-item routerLink="/admin/notifications">Notification Management</a>
+      <a mat-list-item routerLink="/admin/accounts" routerLinkActive="active-link">
+        <mat-icon>person</mat-icon>
+        <span>Quản lý tài khoản</span>
+      </a>
+      <a mat-list-item routerLink="/admin/students" routerLinkActive="active-link">
+        <mat-icon>school</mat-icon>
+        <span>Học sinh</span>
+      </a>
+      <a mat-list-item routerLink="/admin/teachers" routerLinkActive="active-link">
+        <mat-icon>person_outline</mat-icon>
+        <span>Giáo viên</span>
+      </a>
+      <a mat-list-item routerLink="/admin/classes" routerLinkActive="active-link">
+        <mat-icon>class</mat-icon>
+        <span>Lớp học</span>
+      </a>
+      <a mat-list-item routerLink="/admin/notifications" routerLinkActive="active-link">
+        <mat-icon>notifications</mat-icon>
+        <span>Thông báo</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="top-toolbar">
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Admin Dashboard</span>
+      <span class="toolbar-title">Trang quản trị</span>
       <span class="spacer"></span>
+
       <button mat-icon-button [matMenuTriggerFor]="notificationMenu" matBadge="{{notifications.length}}" matBadgeColor="warn">
         <mat-icon>notifications</mat-icon>
       </button>
-
       <mat-menu #notificationMenu="matMenu">
         <button mat-menu-item *ngFor="let noti of notifications" (click)="openNotificationDetail(noti)">
           <mat-icon>announcement</mat-icon>
@@ -34,7 +52,6 @@
       <button mat-icon-button [routerLink]="['/login']">
         <mat-icon>logout</mat-icon>
       </button>
-
     </mat-toolbar>
 
     <div class="admin-content">

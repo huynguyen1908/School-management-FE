@@ -20,7 +20,7 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './notification.component.scss'
 })
 export class NotificationComponent {
-  displayedColumns: string[] = ['title', 'actions'];
+  displayedColumns: string[] = ['title'];
 
   notifications: Notification[] = [];
 

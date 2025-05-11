@@ -23,4 +23,8 @@ export class TeacherService {
   getTeacherAssignments(id: string): Observable<Assignment[]> {
     return this.http.get<Assignment[]>(`${this.baseUrl}/${id}/assigments`);
   }
+
+  getTeacherByUserId(userId: string): Observable<Teacher> {
+    return this.http.get<Teacher>(`http://localhost:9090/api/user/by-teacher/${userId}`);
+  }
 }

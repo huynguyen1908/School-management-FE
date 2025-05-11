@@ -1,25 +1,24 @@
 .notification-container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 8px;
+  padding: 24px;
+  max-width: 900px;
+  margin: auto;
 }
 
-mat-list-item {
+.toolbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 12px;
+  justify-content: flex-start;
+  margin-bottom: 16px;
 }
 
-.notification-title {
-  font-weight: 500;
-  flex-grow: 1;
+.notification-table {
+  width: 100%;
+  cursor: pointer;
 }
 
-.create-button-container {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
+.clickable-row:hover {
+  background-color: #f0f0f0;
+}
+
+.clickable-row {
+  cursor: pointer;
 }

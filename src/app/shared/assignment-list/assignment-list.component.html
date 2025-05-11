@@ -1,9 +1,10 @@
 <div *ngIf="assignments.length > 0; else noAssignment">
-  <div *ngFor="let assignment of assignments" class="assignment-card">
+  <div *ngFor="let assignment of assignments" class="assignment-card" [routerLink]="['/student/assignments/detail', assignment.assignmentId]"
+    style="cursor: pointer;">
     <h3>{{ assignment.title }}</h3>
     <p><strong>Môn:</strong> {{ assignment.subject || 'Chưa xác định' }}</p>
     <p><strong>Hạn nộp:</strong> {{ assignment.dueDates ? (assignment.dueDates | date:'short') : 'Chưa có' }}</p>
-    <p>{{ assignment.description || 'Không có mô tả' }}</p>
+  
 
     <!-- Chỉ hiện nút cho giáo viên -->
     <div *ngIf="role === 'teacher'">

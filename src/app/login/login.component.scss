@@ -1,0 +1,30 @@
+.login-card {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  margin-top: -10px;
+  font-size: 14px;
+}
+

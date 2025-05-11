@@ -1,1 +1,11 @@
-<p>assignment-detail works!</p>
+<mat-card *ngIf="assignment">
+  <mat-card-content>
+    <h3>{{ assignment.title }}</h3>
+    <p><strong>Mô tả:</strong> {{ assignment.description }}</p>
+    <p><strong>Môn học:</strong> {{ assignment.subject }}</p>
+    <p><strong>Giáo viên:</strong> {{ assignment.description }}</p>
+    <p><strong>Hạn nộp:</strong> {{ assignment.dueDates | date:'shortDate' }}</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

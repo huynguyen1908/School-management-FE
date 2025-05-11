@@ -42,7 +42,7 @@ export class StudentService {
   }
 
   editStudent(studentId: string, request: StudentUpdateRequest): Observable<Student> {
-  return this.http.put<Student>(`${this.baseUrl}/student/${studentId}`, request);
-}
+    return this.http.put<Student>(`${this.baseUrl}/student/${studentId}`, request);
+  }
 
 }

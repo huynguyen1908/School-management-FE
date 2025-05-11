@@ -4,6 +4,9 @@ import { StudyService } from '../../service/study.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
+import { StudentService } from '../../service/student.service';
+import { TeacherService } from '../../service/teacher.service';
+import { Teacher } from '../../models/teacher';
 
 @Component({
   selector: 'app-assignment-list',
@@ -17,26 +20,56 @@ export class AssignmentListComponent {
   @Input() userId!: string;
 
   assignments: Assignment[] = [];
+  studentId: string = '';
+  teacherId: string = '';
 
-  constructor(private studyService: StudyService) {}
+  constructor(
+    private studyService: StudyService,
+    private studentService: StudentService,
+    private teacherService: TeacherService
+  ) {}
 
   ngOnInit(): void {
-    // Lấy userId từ localStorage nếu không được truyền qua @Input
-    this.userId = this.userId || localStorage.getItem('userId') || '';
-    if (!this.userId) {
+    const userId = this.userId || localStorage.getItem('userId') || '';
+    if (!userId) {
       console.error('userId is not provided');
       return;
     }
-    console.log('Fetching assignments for userId:', this.userId, 'role:', this.role); // Debug
+    console.log('Fetching assignments for userId:', userId, 'role:', this.role); // Debug
+
     if (this.role === 'student') {
-      this.getAssignmentsOfStudent();
-    } else if (this.role === 'teacher') {
-      this.getAssignmentsOfTeacher();
+      this.studentService.getStudentByUserId(userId).subscribe({
+        next: (student) => {
+          if (!student || !student.studentId) {
+            console.error('No student or studentId found for userId:', userId);
+            return;
+          }
+          this.studentId = student.studentId;
+          this.getAssignmentsOfStudent();
+        },
+        error: (err) => console.error('Error fetching student:', err)
+      });
+    // } else if (this.role === 'teacher') {
+    //   this.teacherService.getTeacherByUserId(userId).subscribe({
+    //     next: (teacher) => {
+    //       if (!teacher || !teacher.teacherId) {
+    //         console.error('No teacher or teacherId found for userId:', userId);
+    //         return;
+    //       }
+    //       this.teacherId = teacher.teacherId;
+    //       this.getAssignmentsOfTeacher();
+    //     },
+    //     error: (err) => console.error('Error fetching teacher:', err)
+    //   });
     }
   }
 
   getAssignmentsOfStudent(): void {
-    this.studyService.getAssignmentsOfStudent(this.userId).subscribe({
+    if (!this.studentId) {
+      console.error('studentId is not provided');
+      return;
+    }
+    this.studyService.getAssignmentsOfStudent(this.studentId).subscribe({
       next: (data) => {
         console.log('Student assignments:', data); // Debug
         this.assignments = data;
@@ -45,13 +78,17 @@ export class AssignmentListComponent {
     });
   }
 
-  getAssignmentsOfTeacher(): void {
-    this.studyService.getAssignmentsOfTeacher(this.userId).subscribe({
-      next: (data) => {
-        console.log('Teacher assignments:', data); // Debug
-        this.assignments = data;
-      },
-      error: (err) => console.error('Error fetching teacher assignments:', err)
-    });
-  }
+  // getAssignmentsOfTeacher(): void {
+  //   if (!this.teacherId) {
+  //     console.error('teacherId is not provided');
+  //     return;
+  //   }
+  //   this.studyService.getAssignmentsOfTeacher(this.teacherId).subscribe({
+  //     next: (data) => {
+  //       console.log('Teacher assignments:', data); // Debug
+  //       this.assignments = data;
+  //     },
+  //     error: (err) => console.error('Error fetching teacher assignments:', err)
+  //   });
+  // }
 }

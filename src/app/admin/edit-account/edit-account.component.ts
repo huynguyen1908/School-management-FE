@@ -4,10 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { UserAccount } from '../../models/user-account';
 import { UserAccountService } from '../../service/user-account.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-edit-account',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormField, MatCardModule, MatLabel],
   templateUrl: './edit-account.component.html',
   styleUrl: './edit-account.component.scss'
 })
@@ -46,6 +48,7 @@ export class EditAccountComponent implements OnInit {
     });
   }
 
+  onSubmit(): void{}
   // onSubmit(): void {
   //   if (this.accountForm.invalid) return;
 
