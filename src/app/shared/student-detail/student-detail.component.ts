@@ -7,10 +7,11 @@ import { Student } from '../../models/student';
 
 import { CommonModule, DatePipe } from '@angular/common';
 import { StudentService } from '../../service/student.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-detail',
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterLink, DatePipe],
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterLink, DatePipe, HttpClientModule],
   templateUrl: './student-detail.component.html',
   styleUrl: './student-detail.component.scss'
 })

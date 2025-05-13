@@ -6,11 +6,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Notification } from '../../models/notification';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-notification-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIconModule, RouterLink],
+  imports: [CommonModule, MatTableModule, MatIconModule, RouterLink, HttpClientModule],
   templateUrl: './user-notification-list.component.html',
   styleUrl: './user-notification-list.component.scss'
 })

@@ -1,12 +1,12 @@
-<mat-sidenav-container class="student-container">
+<mat-sidenav-container class="student-container" >
   <mat-sidenav #sidenav class="student-sidenav" [mode]="'side'" [(opened)]="isSidebarOpen">
     <mat-toolbar color="primary" class="sidenav-toolbar">
       <mat-icon>school</mat-icon>
       <span>Student Menu</span>
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item
-         [routerLink]="student?.studentId ? ['/student/detail', student.studentId] : ['/student/detail']"
+      <a mat-list-item *ngIf="student" 
+        [routerLink]="['/student/detail', student.studentId]"
          routerLinkActive="active-link">
         <mat-icon>person</mat-icon>
         <span>Hồ sơ cá nhân</span>

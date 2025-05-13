@@ -13,6 +13,7 @@ import { NotificationService } from '../service/notification.service';
 import { Notification } from '../models/notification';
 import { Student } from '../models/student';
 import { StudentService } from '../service/student.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-student',
@@ -25,7 +26,8 @@ import { StudentService } from '../service/student.service';
     MatListModule,
     MatButtonModule,
     MatMenuModule,
-    MatBadgeModule],
+    MatBadgeModule, 
+    HttpClientModule],
   templateUrl: './student.component.html',
   styleUrl: './student.component.scss'
 })

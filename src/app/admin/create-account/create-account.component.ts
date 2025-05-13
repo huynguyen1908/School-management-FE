@@ -7,18 +7,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-account',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatSelectModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatSelectModule, MatInputModule, MatIconModule, MatButtonModule],
   templateUrl: './create-account.component.html',
   styleUrl: './create-account.component.scss'
 })
 export class CreateAccountComponent {
   accountForm: FormGroup;
-  roles = ['PARENT', 'STUDENT', 'TEACHER', 'DEPARTMENT'];
+  roles = ['ADMIN', 'STUDENT', 'TEACHER', 'PARENT', 'DEPARTMENT'];
+  departments = ['MANAGER', 'ACCOUNTING', 'OFFICE'];
 
+selectedRole: string = '';
+hidePassword: boolean = true;
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.accountForm = this.fb.group({
       username: ['', Validators.required],
@@ -75,4 +79,8 @@ export class CreateAccountComponent {
   showField(field: string): boolean {
     return this.accountForm.value.role === field;
   }
+
+  onRoleChange(role: string): void {
+  this.selectedRole = role;
+}
 }

@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-teacher-list',
-  imports: [CommonModule, MatTableModule, MatButtonModule, RouterLink],
+  imports: [CommonModule, MatTableModule, MatButtonModule],
   templateUrl: './teacher-list.component.html',
   styleUrl: './teacher-list.component.scss'
 })

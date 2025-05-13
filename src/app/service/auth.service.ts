@@ -23,7 +23,7 @@ export class AuthService {
   ) {}
 
   login(credentials: { username: string; password: string }): Observable<LoginResponse> {
-  return this.http.post<LoginResponse>('/api/auth', credentials).pipe(
+  return this.http.post<LoginResponse>('http://localhost:9090/api/auth', credentials).pipe(
     tap(response => {
       console.log('Login response:', response); // Debug
       if (response.jwt) {

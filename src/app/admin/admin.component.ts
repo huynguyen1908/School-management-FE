@@ -11,6 +11,7 @@ import { Notification } from '../models/notification';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AuthService } from '../service/auth.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -24,7 +25,8 @@ import { AuthService } from '../service/auth.service';
     MatListModule,
     MatButtonModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule
   ],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']

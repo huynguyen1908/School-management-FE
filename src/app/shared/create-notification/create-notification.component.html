@@ -27,12 +27,37 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Người nhận (ID)</mat-label>
-      <input matInput formControlName="receiver" required>
-      <mat-error *ngIf="notificationForm.get('receiver')?.invalid && notificationForm.get('receiver')?.touched">
-        Vui lòng nhập ID người nhận
+      <mat-label>Gửi đến</mat-label>
+      <mat-select [(value)]="mode">
+        <mat-option value="user">Một người dùng</mat-option>
+        <mat-option value="role">Theo vai trò</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!selectedReceiver && notificationFormSubmitted">
+        Vui lòng chọn người nhận từ danh sách
       </mat-error>
     </mat-form-field>
+
+    <div *ngIf="mode === 'user'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Người nhận</mat-label>
+        <input type="text" matInput [formControl]="receiverCtrl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onReceiverSelected($event.option.value)">
+          <mat-option *ngFor="let user of filteredUsers" [value]="user">
+            {{ user.username }} ({{ user.role }})
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="mode === 'role'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Chọn vai trò người nhận</mat-label>
+        <mat-select [(value)]="selectedRole">
+          <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
 
     <button mat-raised-button color="primary" type="submit" [disabled]="notificationForm.invalid">
       Gửi thông báo

@@ -4,14 +4,15 @@ import { UserAccount } from '../../models/user-account';
 import { UserAccountService } from '../../service/user-account.service';
 import { AuthService } from '../../service/auth.service';
 import { Router, RouterLink } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-account-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, RouterLink],
+  imports: [CommonModule, MatTableModule, MatButtonModule, RouterLink, MatIconModule, HttpClientModule],
   templateUrl: './account-list.component.html',
   styleUrl: './account-list.component.scss'
 })

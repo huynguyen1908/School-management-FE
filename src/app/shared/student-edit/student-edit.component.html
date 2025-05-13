@@ -3,7 +3,7 @@
     <mat-form-field>
       <mat-label>Tên</mat-label>
       <input matInput [(ngModel)]="student.name" name="name" required>
-      <mat-error *ngIf="studentForm.controls['name']?.hasError('required')">
+      <mat-error *ngIf="studentForm.submitted && !student.name">
         Tên là bắt buộc
       </mat-error>
     </mat-form-field>

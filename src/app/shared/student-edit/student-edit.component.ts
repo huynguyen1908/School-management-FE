@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from '../../models/student';
 import { StudentService } from '../../service/student.service';
@@ -11,12 +11,13 @@ import { MatOption, MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-student-edit',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, MatOption, MatSelectModule,MatDatepickerModule,
-    MatNativeDateModule],
+    MatNativeDateModule, CommonModule, ReactiveFormsModule],
   templateUrl: './student-edit.component.html',
   styleUrl: './student-edit.component.scss'
 })

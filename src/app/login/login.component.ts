@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -25,7 +25,7 @@ interface LoginResponse {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule, MatIconModule],
+    MatCardModule, MatIconModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -75,29 +75,3 @@ export class LoginComponent {
   }
 
 }
-// export class LoginComponent {
-//   loginForm: FormGroup;
-//   errorMessage = '';
-
-//   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
-//     this.loginForm = this.fb.group({
-//       username: ['', Validators.required],
-//       password: ['', Validators.required]
-//     });
-//   }
-
-//   login(): void {
-//     if (this.loginForm.invalid) return;
-
-//     this.authService.login(this.loginForm.value).subscribe({
-//       next: (res) => {
-//         localStorage.setItem('jwtToken', res.token);
-//         this.router.navigate(['/admin']); // chuyển hướng sau login
-//       },
-//       error: (err) => {
-//         this.errorMessage = 'Login failed. Please check credentials.';
-//         console.error(err);
-//       }
-//     });
-//   }
-// }

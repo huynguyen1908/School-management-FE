@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './class-list.component.scss'
 })
 export class ClassListComponent implements OnInit  {
-   displayedColumns: string[] = ['classId', 'className', 'grade', 'actions'];
+  displayedColumns: string[] = ['classId', 'className', 'grade', 'actions'];
   classes: Class[] = [];
 
   constructor(private classService: ClassService) {}
