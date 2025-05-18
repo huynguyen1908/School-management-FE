@@ -1,4 +1,11 @@
-  <table mat-table [dataSource]="classes" class="mat-elevation-z8">
+ <div class="toolbar">
+      <button mat-raised-button color="primary" [routerLink]="['/admin/classes/create']">
+        <mat-icon>person_add</mat-icon> Tạo lớp học
+      </button>
+  </div>
+
+ <table mat-table [dataSource]="classes" class="mat-elevation-z8">
+
     <ng-container matColumnDef="classId">
       <th mat-header-cell *matHeaderCellDef>ID</th>
       <td mat-cell *matCellDef="let class">{{class.classId}}</td> <!-- sửa phần này -->

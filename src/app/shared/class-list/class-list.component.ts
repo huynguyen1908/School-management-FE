@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-class-list',
-  imports: [CommonModule, MatTableModule, MatButtonModule, RouterLink],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatIconModule ,RouterLink],
   templateUrl: './class-list.component.html',
   styleUrl: './class-list.component.scss'
 })

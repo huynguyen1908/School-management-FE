@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>Tạo lớp học mới</mat-card-title>
+
+  <form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tên lớp</mat-label>
+      <input matInput formControlName="className" required>
+      <mat-error *ngIf="classForm.get('className')?.hasError('required')">
+        Tên lớp không được để trống
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Khối</mat-label>
+      <input matInput type="number" formControlName="grade" required>
+      <mat-error *ngIf="classForm.get('grade')?.hasError('required')">
+        Vui lòng nhập khối
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="classForm.invalid">
+      Tạo lớp
+    </button>
+  </form>
+</mat-card>

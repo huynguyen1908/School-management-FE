@@ -23,6 +23,7 @@ export const routes: Routes = [
         { path: 'teachers', loadComponent: () => import('./admin/teacher-list/teacher-list.component').then((m) => m.TeacherListComponent)},
         { path: 'classes', loadComponent: () => import('./shared/class-list/class-list.component').then((m) => m.ClassListComponent)},
         { path: 'classes/detail/:id', loadComponent: () => import('./shared/class-detail/class-detail.component').then((m) => m.ClassDetailComponent)},
+        { path: 'classes/create', loadComponent: () => import('./admin/create-class/create-class.component').then((m) => m.CreateClassComponent)},
         { path: 'notifications', loadComponent: () => import('./shared/notification/notification.component').then((m) => m.NotificationComponent)},
         { path: 'notifications/detail/:notificationId', loadComponent: () => import('./shared/notification-detail/notification-detail.component').then((m) => m.NotificationDetailComponent)},
         { path: 'notifications/create', loadComponent: () => import('./shared/create-notification/create-notification.component').then((m) => m.CreateNotificationComponent)},
