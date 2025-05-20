@@ -1,0 +1,17 @@
+<div>
+  <input type="text" placeholder="Student ID" [(ngModel)]="studentId" />
+  <button (click)="fetchScores()">Fetch Scores</button>
+
+  <table *ngIf="scores.length > 0">
+    <tr>
+      <th>Subject</th>
+      <th>Semester</th>
+      <th>Score</th>
+    </tr>
+    <tr *ngFor="let score of scores">
+      <td>{{ score.subject }}</td>
+      <td>{{ score.semester }}</td>
+      <td>{{ score.score }}</td>
+    </tr>
+  </table>
+</div>

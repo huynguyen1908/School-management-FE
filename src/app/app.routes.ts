@@ -8,6 +8,7 @@ import { AdminGuard } from './auth/admin.guard';
 import { StudentComponent } from './student/student.component';
 import { StudentGuard } from './auth/student.guard';
 import { TuitionListComponent } from './shared/tuition-list/tuition-list.component';
+import { ScoreComponent } from './shared/score/score.component';
 
 export const routes: Routes = [
     {
@@ -43,7 +44,8 @@ export const routes: Routes = [
         { path: 'edit/:id', component: StudentEditComponent },
         { path: 'assignments', loadComponent: () => import('./shared/assignment-list/assignment-list.component').then((m) => m.AssignmentListComponent)},
         { path: 'assignments/detail/:assignmentId', loadComponent: () => import('./shared/assignment-detail/assignment-detail.component').then((m) => m.AssignmentDetailComponent)},
-        { path: 'tuition/:id', loadComponent: () => import('./shared/tuition-list/tuition-list.component').then((m) => m.TuitionListComponent) }
+        { path: 'tuition/:id', loadComponent: () => import('./shared/tuition-list/tuition-list.component').then((m) => m.TuitionListComponent) },
+        { path: 'scores', component: ScoreComponent },
       ]
      },
     { path: 'login', loadComponent: () => import('./login/login.component').then((m) => m.LoginComponent), },
