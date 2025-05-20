@@ -7,6 +7,8 @@ import { StudentDetailComponent } from './shared/student-detail/student-detail.c
 import { AdminGuard } from './auth/admin.guard';
 import { StudentComponent } from './student/student.component';
 import { StudentGuard } from './auth/student.guard';
+import { TuitionListComponent } from './shared/tuition-list/tuition-list.component';
+import { ScoreComponent } from './shared/score/score.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +29,8 @@ export const routes: Routes = [
         { path: 'notifications', loadComponent: () => import('./shared/notification/notification.component').then((m) => m.NotificationComponent)},
         { path: 'notifications/detail/:notificationId', loadComponent: () => import('./shared/notification-detail/notification-detail.component').then((m) => m.NotificationDetailComponent)},
         { path: 'notifications/create', loadComponent: () => import('./shared/create-notification/create-notification.component').then((m) => m.CreateNotificationComponent)},
-      
+        { path: 'tuition/create', loadComponent: () => import('./shared/tuition-create/tuition-create.component').then((m) => m.TuitionCreateComponent) },
+        
         { path: '', redirectTo: 'students', pathMatch: 'full' }
       ]
     },
@@ -41,6 +44,8 @@ export const routes: Routes = [
         { path: 'edit/:id', component: StudentEditComponent },
         { path: 'assignments', loadComponent: () => import('./shared/assignment-list/assignment-list.component').then((m) => m.AssignmentListComponent)},
         { path: 'assignments/detail/:assignmentId', loadComponent: () => import('./shared/assignment-detail/assignment-detail.component').then((m) => m.AssignmentDetailComponent)},
+        { path: 'tuition/:id', loadComponent: () => import('./shared/tuition-list/tuition-list.component').then((m) => m.TuitionListComponent) },
+        { path: 'scores', component: ScoreComponent },
       ]
      },
     { path: 'login', loadComponent: () => import('./login/login.component').then((m) => m.LoginComponent), },

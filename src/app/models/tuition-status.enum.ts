@@ -1,0 +1,8 @@
+export enum TuitionStatus {
+  UNPAID = 'UNPAID',
+  PAID = 'PAID',
+  PENDING = 'PENDING',
+  OVERDUE = 'OVERDUE',
+  PARTIALLY_PAID = 'PARTIALLY_PAID',
+  CANCELLED = 'CANCELLED'
+}

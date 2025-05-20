@@ -1,0 +1,19 @@
+<h2>Tạo học phí mới</h2>
+<form [formGroup]="tuitionForm" (ngSubmit)="onSubmit()">
+  <label>
+    Mã học sinh:
+    <input type="text" formControlName="studentId" />
+  </label>
+  <br />
+  <label>
+    Số tiền:
+    <input type="number" formControlName="amount" />
+  </label>
+  <br />
+  <label>
+    Hạn nộp:
+    <input type="date" formControlName="dueDate" />
+  </label>
+  <br />
+  <button type="submit" [disabled]="tuitionForm.invalid">Tạo học phí</button>
+</form>

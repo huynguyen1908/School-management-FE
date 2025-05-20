@@ -1,1 +1,30 @@
-<p>tuition-list works!</p>
+<div class="container">
+  <h2>Thông tin học phí</h2>
+
+  <p *ngIf="error" style="color: red;">{{ error }}</p>
+
+  <table *ngIf="tuitions.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Lớp</th>
+        <th>Số tiền</th>
+        <th>Hạn đóng</th>
+        <th>Thanh toán lúc</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tuition of tuitions">
+        <td>{{ tuition.tuitionId }}</td>
+        <td>{{ tuition.departmentId }}</td>
+        <td>{{ tuition.amount | currency:'VND' }}</td>
+        <td>{{ tuition.dueDate | date }}</td>
+        <td>{{ tuition.paidAt ? (tuition.paidAt | date:'short') : 'Chưa thanh toán' }}</td>
+        <td>{{ tuition.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!error && tuitions.length === 0">Không có thông tin học phí.</p>
+</div>
