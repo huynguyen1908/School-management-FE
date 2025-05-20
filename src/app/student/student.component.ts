@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
@@ -32,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './student.component.scss'
 })
 export class StudentComponent {
+  @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
+
   isSidebarOpen = true;
   notifications: Notification[] = [];
   student!: Student;

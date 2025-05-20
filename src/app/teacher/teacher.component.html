@@ -1,34 +1,29 @@
-<mat-sidenav-container class="student-container" >
-  <mat-sidenav #sidenav class="student-sidenav" [mode]="'side'" [(opened)]="isSidebarOpen">
+<mat-sidenav-container class="teacher-container" >
+  <mat-sidenav #sidenav class="teacher-sidenav" [mode]="'side'" [(opened)]="isSidebarOpen">
     <mat-toolbar color="primary" class="sidenav-toolbar">
       <mat-icon>school</mat-icon>
-      <span>Student Menu</span>
+      <span>Teacher Menu</span>
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item *ngIf="student" 
-        [routerLink]="['/student/detail', student.studentId]"
-         routerLinkActive="active-link">
+      <a mat-list-item *ngIf="teacher" 
+        [routerLink]="['/teacher/detail', teacher.teacherId]"
+         routerLinkActive="active-detaillink">
         <mat-icon>person</mat-icon>
         <span>Hồ sơ cá nhân</span>
       </a>
-      <a mat-list-item routerLink="/student/classes" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/teacher/classes" routerLinkActive="active-link">
         <mat-icon>class</mat-icon>
         <span>Lớp học của tôi</span>
       </a>
-      <a mat-list-item routerLink="/student/notifications" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/teacher/notifications" routerLinkActive="active-link">
         <mat-icon>notifications</mat-icon>
         <span>Thông báo</span>
       </a>
-      <a mat-list-item routerLink="/student/assignments" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/teacher/assignments" routerLinkActive="active-link">
         <mat-icon>assignment</mat-icon>
         <span>Bài tập</span>
       </a>
-      <a mat-list-item *ngIf="student" 
-        [routerLink]="['/student/tuition', student.studentId]" routerLinkActive="active-link">
-        <mat-icon>Tuition</mat-icon>
-        <span>Học phí</span>
-      </a>
-      <a mat-list-item routerLink="/student/scores" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/teacher/scores" routerLinkActive="active-link">
         <mat-icon>grading</mat-icon>
         <span>Điểm số</span>
       </a>
@@ -40,7 +35,7 @@
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="toolbar-title">Student Dashboard</span>
+      <span class="toolbar-title">Teacher Dashboard</span>
       <span class="spacer"></span>
 
       <button mat-icon-button [matMenuTriggerFor]="notificationMenu"
@@ -51,7 +46,7 @@
 
       <mat-menu #notificationMenu="matMenu">
         <button mat-menu-item *ngFor="let noti of notifications"
-                [routerLink]="['/student/notifications/detail', noti.notificationId]"
+                [routerLink]="['/teacher/notifications/detail', noti.notificationId]"
                 (click)="menuTrigger.closeMenu()">
           <mat-icon>announcement</mat-icon>
           <span>{{ noti.title }}</span>
@@ -66,7 +61,7 @@
       </button>
     </mat-toolbar>
 
-    <div class="student-content">
+    <div class="teacher-content">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

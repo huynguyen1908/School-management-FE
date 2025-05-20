@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Studyscore } from '../../models/studyscore';
 import { StudyService } from '../../service/study.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-score',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './score.component.html',
   styleUrl: './score.component.scss'
 })

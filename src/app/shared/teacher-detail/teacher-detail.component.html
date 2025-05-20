@@ -1,0 +1,25 @@
+<div *ngIf="teacher">
+  <h2>Teacher Details</h2>
+  <p><strong>ID:</strong> {{ teacher.teacherId }}</p>
+  <p><strong>Name:</strong> {{ teacher.name }}</p>
+  <p><strong>Subject:</strong> {{ teacher.subject }}</p>
+  <p><strong>Is Homeroom:</strong> {{ teacher.isHomeroom ? 'Yes' : 'No' }}</p>
+  <p><strong>Date of Birth:</strong> {{ teacher.dateOfBirth }}</p>
+  <p><strong>Gender:</strong> {{ teacher.gender }}</p>
+  <p><strong>Email:</strong> {{ teacher.email }}</p>
+</div>
+
+<div *ngIf="assignments.length > 0">
+  <h3>Assignments</h3>
+  <ul>
+    <li *ngFor="let assignment of assignments">
+      <strong>{{ assignment.title }}</strong> - {{ assignment.subject }} <br/>
+      Due: {{ assignment.dueDates }} <br/>
+      Description: {{ assignment.description }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!teacher">
+  <p>No teacher data loaded.</p>
+</div>
