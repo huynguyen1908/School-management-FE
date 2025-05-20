@@ -29,8 +29,8 @@ export class AuthService {
       if (response.jwt) {
         localStorage.setItem(this.TOKEN_KEY, response.jwt);
         localStorage.setItem(this.USER_ID_KEY, response.id);
-          localStorage.setItem(this.USERNAME_KEY, response.username);
-          localStorage.setItem(this.ROLE_KEY, response.role); // lưu role ở đây
+        localStorage.setItem(this.USERNAME_KEY, response.username);
+        localStorage.setItem(this.ROLE_KEY, response.role); // lưu role ở đây
       } else {
         console.error('No jwt field in response');
       }

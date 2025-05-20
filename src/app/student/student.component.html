@@ -23,8 +23,9 @@
         <mat-icon>assignment</mat-icon>
         <span>Bài tập</span>
       </a>
-      <a mat-list-item routerLink="/student/tuition" routerLinkActive="active-link">
-        <mat-icon>tuition</mat-icon>
+      <a mat-list-item *ngIf="student" 
+        [routerLink]="['/student/tuition', student.studentId]" routerLinkActive="active-link">
+        <mat-icon>Tuition</mat-icon>
         <span>Học phí</span>
       </a>
     </mat-nav-list>
